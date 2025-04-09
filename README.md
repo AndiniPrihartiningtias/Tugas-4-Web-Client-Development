@@ -282,6 +282,28 @@ Berisi form input agar pengunjung bisa mengirim pesan
 - Menyediakan form input yang terdiri dari: Nama, Email, Subjek dan Pesan
 - Tombol Submit untuk mengirim pesan
 
+## Cara Menjalankan Proyek
+Jalankan proyek ini dengan  clone dan run dengan mudah:
+
+1. **Clone repository**
+```bash
+git clone https://github.com/AndiniPrihartiningtias/nama-repo-kamu.git
+
+cd nama-repo-kamu
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Jalankan proyek
+
+```bash
+npm run dev
+```
+
 ## Kesimpulan
 Proyek ini merupakan implementasi dari desain Figma ke dalam website nyata menggunakan React dan Vite sebagai tools utama. Dengan pendekatan komponen dan routing, website ini dibangun secara modular, efisien, dan mudah dikembangkan.
 
