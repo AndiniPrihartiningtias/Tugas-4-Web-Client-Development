@@ -43,6 +43,103 @@ src/
 ```
 
 ## Penjelasan Kode/ Komponen
+### CTA
+```jsx
+function CTA({ onClick }) {
+  return (
+    <a href="#" className="floating-cta" onClick={onClick}>
+      <span className="wave">👋</span>
+      <span className="cta-text">Hi I'm Andini</span>
+    </a>
+  );
+}
+
+```
+- ``function CTA({ onClick })``
+Komponen fungsional React yang menerima prop onClick, yaitu fungsi yang dijalankan saat tombol diklik.
+
+- `` <a href="#" onClick={onClick}>`` Elemen link yang berperan sebagai tombol. onClick akan menjalankan fungsi yang dikirim dari komponen induk.
+
+- ``<span className="wave">👋</span>`` Menampilkan emoji lambaian tangan sebagai bagian dari tombol.
+
+- ``<span className="cta-text">Hi I'm Andini</span>`` Teks ajakan yang muncul di tombol.
+
+## Floating Menu
+```jsx
+function FloatingMenu({ isOpen, onClose }) {
+  return (
+    <div className={`floating-menu-half ${isOpen ? "open" : ""}`}>
+      <div className="left-side">
+      </div>
+
+      <div className="right-side">
+        <button className="close-btn" onClick={onClose}>
+          <FaTimes />
+        </button>
+        <ul className="menu-links">
+          <li><a href="#home" onClick={onClose}>Home</a></li>
+          <li><a href="#about" onClick={onClose}>About</a></li>
+          <li><a href="#contact" onClick={onClose}>Contact</a></li>
+        </ul>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/andini-prihartiningtias-4418aa326" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/anprhnn" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://github.com/AndiniPrihartiningtias" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+```
+- ``className={\floating-menu-half ${isOpen ? "open" : ""}`}``  Menambahkan ``class"open"``saat ``isOpen`` bernilai ``true` untuk memicu animasi/transisi CSS.
+
+- ``<FaTimes />`` Icon “X” dari ``react-icons`` untuk tombol tutup.
+
+- ``onClick={onClose}`` Dipasang pada tombol dan link untuk menutup menu saat diklik.
+
+- ``<ul className="menu-links">`` Navigasi ke bagian Home, About, dan Contact dengan scroll ke anchor.
+
+- ``<div className="social-links">`` Link ke media sosial (LinkedIn, Instagram, GitHub), terbuka di tab baru.
+
+## Navbar
+```jsx
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="logo">
+            <a href="#">Andini Prihartiningtias</a>
+          </div>
+
+          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+
+          <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+            <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
+            <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+}
+```
+- Menggunakan ``useState()`` untuk mengatur status buka/tutup menu ``(menuOpen)``.
+- Icon menu menggunakan ``react-icons``:
+    - ``FaBars`` (☰) untuk membuka menu.
+    - ``FaTimes`` (✕) untuk menutup menu.
+- Saat icon diklik, ``menuOpen`` akan toggle (``true``/``false``) untuk mengontrol class open pada menu.
+- Navigasi (``Home``, ``About``, ``Contact``) ditutup otomatis saat salah satu link diklik (``setMenuOpen(false)``).
+- Logo bertuliskan "**Andini Prihartiningtias**", bisa diarahkan ke halaman utama.
+
+
+
 ### Landing Page 
 ```jsx
 function LandingPage() {
